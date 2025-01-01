@@ -1,10 +1,10 @@
 import os
 from flask import Flask, request, jsonify
-import google.generativeai as genai
 from flask_cors import CORS  # Importing CORS
+import google.generativeai as genai
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app, resources={r"/*": {"origins": "*"}})  # Allow requests from all origins
 
 # Load the API key from the environment
 api_key = os.getenv("GOOGLE_GENERATIVEAI_KEY")
